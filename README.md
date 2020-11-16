@@ -90,7 +90,6 @@ def error_redirect(error):
 ```python
 if __name__ == "__main__":
     app.run(debug=True)
-
 ```
 - How to run the Flask app
 ```commandline
@@ -99,5 +98,14 @@ flask run
 - We then click on the url provided in our terminal which should look like this ```http://127.0.0.1:5000/ ``` to
  access our site
 - We can also go to the other specified routes to access the student data or the login page by appending the path to
- the existing url, i.e. ```http://127.0.0.1:5000/login``` 
+ the existing url, i.e. ```http://127.0.0.1:5000/login```
+**Integrating HTML**
+- Naming conventions are essential
+- We need to create a template folder in our dir
+- Flask looks for templates folder and anything inside the folder
+- We will create index.html inside our templates folder
+
+**Bootstrap to design our page with HTML, CSS, and JS**
+ 
+
 ## 

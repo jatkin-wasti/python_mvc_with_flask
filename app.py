@@ -1,5 +1,5 @@
 # Flask looks for files called app so this is what we have named our file
-from flask import Flask, jsonify, redirect, url_for
+from flask import Flask, jsonify, redirect, url_for, render_template
 
 
 # Create an instance of our app
@@ -46,6 +46,11 @@ def error_redirect(error):
 @app.route("/<username>/")
 def welcome_user(username):
     return f"<h1>Welcome to the dream team of DevOps, {username}</h1>"
+
+
+@app.route("/index/")
+def index():
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
