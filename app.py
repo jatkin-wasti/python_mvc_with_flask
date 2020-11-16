@@ -33,7 +33,7 @@ def customised_api():
 # This redirects the user to the greeting page when trying to access the login page
 @app.route("/login/")
 def login():
-    return redirect(url_for("greet_user"))
+    return render_template("index.html")
 
 
 # This handles all errors, so if a user tries to access a non existent page it will redirect them to the home page
