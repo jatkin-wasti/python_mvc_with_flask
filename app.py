@@ -20,7 +20,7 @@ def home():
 
 @app.route("/welcome/")  # The extra forward slash allows the page to work both with and without it
 def greet_user():
-    return "Welcome to the DevOps team!"
+    return render_template("welcome.html")
 
 
 # Creating our own API to display data on the specific route/URL/end point/API
@@ -33,7 +33,7 @@ def customised_api():
 # This redirects the user to the greeting page when trying to access the login page
 @app.route("/login/")
 def login():
-    return render_template("index.html")
+    return render_template("login.html")
 
 
 # This handles all errors, so if a user tries to access a non existent page it will redirect them to the home page
