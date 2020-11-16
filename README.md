@@ -106,6 +106,7 @@ flask run
 - We will create index.html inside our templates folder
 
 **Bootstrap to design our page with HTML, CSS, and JS**
- 
+- CSS goes in the <head></head> section
+- 
 
 ## 
