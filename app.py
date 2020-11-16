@@ -1,5 +1,5 @@
 # Flask looks for files called app so this is what we have named our file
-from flask import Flask
+from flask import Flask, jsonify, redirect, url_for
 
 
 # Create an instance of our app
@@ -15,7 +15,37 @@ students = [
 @app.route("/")  # localhost:5000 is default port for Flask
 # This function runs when the URL/API is accessed
 def home():
-    return "This is a dream team of DevOps consultants celebrating a WOW moment!"
+    return "<h1>This is a dream team of DevOps consultants celebrating a WOW moment!</h1>"
+
+
+@app.route("/welcome/")  # The extra forward slash allows the page to work both with and without it
+def greet_user():
+    return "Welcome to the DevOps team!"
+
+
+# Creating our own API to display data on the specific route/URL/end point/API
+@app.route("/api/v1/student/data", methods=["GET"])  # This will add this API/URL/end point to the
+# http://127.0.0.1:5000/api/v1/student/data
+def customised_api():
+    return jsonify(students)  # Use ETL Extract Transform Load. Transforms the students data into Json format
+
+
+# This redirects the user to the greeting page when trying to access the login page
+@app.route("/login/")
+def login():
+    return redirect(url_for("greet_user"))
+
+
+# This handles all errors, so if a user tries to access a non existent page it will redirect them to the home page
+@app.errorhandler(Exception)
+def error_redirect(error):
+    return redirect((url_for("home")))
+
+
+# The <> show that this is an input field
+@app.route("/<username>/")
+def welcome_user(username):
+    return f"<h1>Welcome to the dream team of DevOps, {username}</h1>"
 
 
 if __name__ == "__main__":
